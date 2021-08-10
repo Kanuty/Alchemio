@@ -1,59 +1,59 @@
-const  graphql = require('graphql');
-const _  = require('lodash');
+const graphql = require("graphql");
+const axios = require("axios");
 
-const{
+const {
   GraphQLObjectType,
   GraphQLString,
   GraphQLInt,
   GraphQLID,
   GraphQLSchema,
-  GraphQLList
+  GraphQLList,
+  GraphQLNonNull,
 } = graphql;
 
 const IngredientType = new GraphQLObjectType({
-  name: 'Ingredient',
+  name: "Ingredient",
   fields: {
-    id: { type: GraphQLID},
-    name: { type: GraphQLString},
-    description: { type: GraphQLString},
-  }
-})
+    id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    description: { type: GraphQLString },
+  },
+});
 
 const MixtureType = new GraphQLObjectType({
-  name: 'Mixture',
+  name: "Mixture",
   fields: {
-    id: { type: GraphQLID},
-    name: { type: GraphQLString},
-    description: { type: GraphQLString},
-    ingredients: { type: new GraphQLList(IngredientType) },
-    brewingTime: { type: GraphQLInt}
-  }
-})
+    id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    description: { type: GraphQLString },
+    ingredients: {
+      type: new GraphQLList(GraphQLNonNull(IngredientType)),
+      resolve(parentValue, args) {
+        const ids = parentValue.ingredients.map((x) => x.id);
+        return axios
+          .get(`http://localhost:3000/Ingredients/`)
+          .then((res) => res.data.filter((e) => ids.indexOf(e.id) !== -1));
+      },
+    },
+    brewingTime: { type: GraphQLInt },
+  },
+});
 
 const RootQuery = new GraphQLObjectType({
-  name:'RootQueryType',
+  name: "RootQueryType",
   fields: {
-    Mixture:{
+    Mixture: {
       type: MixtureType,
-      args: { id: { type: GraphQLID}},
-      resolve(parentValue, args){
-        return _.find(Mixtures, { id: args.id});
-      }
-    }
-  }
+      args: { id: { type: GraphQLID } },
+      resolve(parentValue, args) {
+        return axios
+          .get(`http://localhost:3000/Mixtures/${args.id}`)
+          .then((res) => res.data);
+      },
+    },
+  },
 });
-
-const Mixtures = [
-  { id: "1", name: 'Cat', description: '', ingredients: [{id:101},{id:102},{id:103} ], brewingTime: 5}
-]
-
-const Ingredients = [
-  {id: "101", name:  'Dwarven spirit', description: ''  },
-  {id: "102", name:  'Berbercane fruit', description: ''  },
-  {id: "103", name:  'Water essence', description: ''  },
-]
 
 module.exports = new GraphQLSchema({
-  query: RootQuery
+  query: RootQuery,
 });
-

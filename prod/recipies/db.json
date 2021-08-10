@@ -1,0 +1,46 @@
+{
+  "Mixtures": [
+    {
+      "id": "1",
+      "name": "Cat",
+      "description": "",
+      "ingredients": [
+        { "id": 101},
+        { "id": 102},
+        { "id": 103}
+      ],
+      "brewingTime": 5
+    },
+    {
+      "id": "2",
+      "name": "Black Blood",
+      "description": "",
+      "ingredients": [
+        { "id": 101},
+        { "id": 104},
+        { "id": 105}
+      ],
+      "brewingTime": 8
+    },
+    {
+      "id": "3",
+      "name": "Blizzard",
+      "description": "",
+      "ingredients": [
+        {"id": 101},
+        {"id": 106},
+        {"id": 107}
+      ],
+      "brewingTime": 10
+    }
+  ],
+  "Ingredients": [
+    { "id": 101, "name": "Dwarven spirit", "description": "" },
+    { "id": 102, "name": "Berbercane fruit", "description": "" },
+    { "id": 103, "name": "Water essence", "description": "" },
+    { "id": 104, "name": "Sewent mushrooms", "description": "" },
+    { "id": 105, "name": "Ghoul's Blood", "description": "" },
+    { "id": 106, "name": "White myrtle petals", "description": "" },
+    { "id": 107, "name": "Golem's heart", "description": "" }
+  ]
+}
