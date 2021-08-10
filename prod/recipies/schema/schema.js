@@ -17,6 +17,7 @@ const IngredientType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     description: { type: GraphQLString },
+    quantity: { type: GraphQLString},
   },
 });
 
@@ -30,9 +31,15 @@ const MixtureType = new GraphQLObjectType({
       type: new GraphQLList(GraphQLNonNull(IngredientType)),
       resolve(parentValue, args) {
         const ids = parentValue.ingredients.map((x) => x.id);
+        const quants = parentValue.ingredients.map((x) => x.quantity);
         return axios
           .get(`http://localhost:3000/Ingredients/`)
-          .then((res) => res.data.filter((e) => ids.indexOf(e.id) !== -1));
+          .then((res) => {
+            var response = res.data.filter((e) => ids.indexOf(e.id) !== -1)
+             response.map((e, i) => e.quantity = quants[i])
+             return response
+          });
+         
       },
     },
     brewingTime: { type: GraphQLInt },
