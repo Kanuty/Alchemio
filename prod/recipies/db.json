@@ -5,9 +5,18 @@
       "name": "Cat",
       "description": "",
       "ingredients": [
-        { "id": 101, "quantity": 1},
-        { "id": 102, "quantity": 1},
-        { "id": 103, "quantity": 3}
+        {
+          "id": 101,
+          "quantity": 1
+        },
+        {
+          "id": 102,
+          "quantity": 1
+        },
+        {
+          "id": 103,
+          "quantity": 3
+        }
       ],
       "brewingTime": 5
     },
@@ -16,9 +25,18 @@
       "name": "Black Blood",
       "description": "",
       "ingredients": [
-        { "id": 101, "quantity": 1},
-        { "id": 104, "quantity": 1},
-        { "id": 105, "quantity": 1}
+        {
+          "id": 101,
+          "quantity": 1
+        },
+        {
+          "id": 104,
+          "quantity": 1
+        },
+        {
+          "id": 105,
+          "quantity": 1
+        }
       ],
       "brewingTime": 8
     },
@@ -27,20 +45,70 @@
       "name": "Blizzard",
       "description": "",
       "ingredients": [
-        {"id": 101, "quantity": 1},
-        {"id": 106, "quantity": 1},
-        {"id": 107, "quantity": 5}
+        {
+          "id": 101,
+          "quantity": 1
+        },
+        {
+          "id": 106,
+          "quantity": 1
+        },
+        {
+          "id": 107,
+          "quantity": 5
+        }
       ],
       "brewingTime": 10
     }
   ],
   "Ingredients": [
-    { "id": 101, "name": "Dwarven spirit", "description": "", "quantity": null },
-    { "id": 102, "name": "Berbercane fruit", "description": "", "quantity": null },
-    { "id": 103, "name": "Water essence", "description": "", "quantity": null },
-    { "id": 104, "name": "Sewent mushrooms", "description": "", "quantity": null },
-    { "id": 105, "name": "Ghoul's Blood", "description": "", "quantity": null },
-    { "id": 106, "name": "White myrtle petals", "description": "", "quantity": null },
-    { "id": 107, "name": "Golem's heart", "description": "", "quantity": null }
+    {
+      "id": 101,
+      "name": "Dwarven spirit",
+      "description": "",
+      "quantity": null
+    },
+    {
+      "id": 102,
+      "name": "Berbercane fruit",
+      "description": "",
+      "quantity": null
+    },
+    {
+      "id": 103,
+      "name": "Water essence",
+      "description": "",
+      "quantity": null
+    },
+    {
+      "id": 104,
+      "name": "Sewent mushrooms",
+      "description": "",
+      "quantity": null
+    },
+    {
+      "id": 105,
+      "name": "Ghoul's Blood",
+      "description": "",
+      "quantity": null
+    },
+    {
+      "id": 106,
+      "name": "White myrtle petals",
+      "description": "",
+      "quantity": null
+    },
+    {
+      "id": 107,
+      "name": "Golem's heart",
+      "description": "",
+      "quantity": null
+    },
+    {
+      "name": "Amber",
+      "description": "",
+      "quantity": null,
+      "id": 108
+    }
   ]
 }
